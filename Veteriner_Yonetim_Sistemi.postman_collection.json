@@ -1,0 +1,965 @@
+{
+	"info": {
+		"_postman_id": "veteriner-yonetim-sistemi",
+		"name": "Veteriner Yönetim Sistemi",
+		"description": "Veteriner kliniği yönetim sistemi API endpointleri",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Create Customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ahmet Yılmaz\",\n    \"phone\": \"05551234567\",\n    \"mail\": \"ahmet@email.com\",\n    \"address\": \"Atatürk Cad. No:123\",\n    \"city\": \"İstanbul\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/customers",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get All Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customers",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Customer by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customers/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"customers",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Search Customers by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customers/search?name=Ahmet",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"customers",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Ahmet"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Update Customer",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ahmet Yılmaz\",\n    \"phone\": \"05551234567\",\n    \"mail\": \"ahmet.yilmaz@email.com\",\n    \"address\": \"Yeni Adres\",\n    \"city\": \"İstanbul\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/customers/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"customers",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customers/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"customers",
+								"1"
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Animals",
+			"item": [
+				{
+					"name": "Create Animal",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Pamuk\",\n    \"species\": \"Kedi\",\n    \"breed\": \"Tekir\",\n    \"gender\": \"Dişi\",\n    \"colour\": \"Gri\",\n    \"dateOfBirth\": \"2020-01-15\",\n    \"customerId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/animals",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"animals"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get All Animals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/animals",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"animals"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Animal by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/animals/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"animals",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Search Animals by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/animals/search?name=Pamuk",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"animals",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Pamuk"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Animals by Customer ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/animals/by-customer/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"animals",
+								"by-customer",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Animals by Customer Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/animals/by-customer-name?customerName=Ahmet",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"animals",
+								"by-customer-name"
+							],
+							"query": [
+								{
+									"key": "customerName",
+									"value": "Ahmet"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Update Animal",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Pamuk\",\n    \"species\": \"Kedi\",\n    \"breed\": \"Tekir\",\n    \"gender\": \"Dişi\",\n    \"colour\": \"Gri-Beyaz\",\n    \"dateOfBirth\": \"2020-01-15\",\n    \"customerId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/animals/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"animals",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Animal",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/animals/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"animals",
+								"1"
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Doctors",
+			"item": [
+				{
+					"name": "Create Doctor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Dr. Ayşe Demir\",\n    \"phone\": \"05559876543\",\n    \"mail\": \"ayse.demir@vet.com\",\n    \"address\": \"Veteriner Cad. No:45\",\n    \"city\": \"İstanbul\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/doctors",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"doctors"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get All Doctors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/doctors",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"doctors"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Doctor by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/doctors/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"doctors",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Search Doctors by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/doctors/search?name=Ayşe",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"doctors",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Ayşe"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Update Doctor",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Dr. Ayşe Demir\",\n    \"phone\": \"05559876543\",\n    \"mail\": \"ayse.demir@veteriner.com\",\n    \"address\": \"Yeni Veteriner Cad. No:45\",\n    \"city\": \"İstanbul\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/doctors/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"doctors",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Doctor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/doctors/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"doctors",
+								"1"
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Available Dates",
+			"item": [
+				{
+					"name": "Create Available Date",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"availableDate\": \"2024-01-15\",\n    \"doctorId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/available-dates",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"available-dates"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get All Available Dates",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/available-dates",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"available-dates"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Available Date by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/available-dates/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"available-dates",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Available Dates by Doctor ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/available-dates/by-doctor/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"available-dates",
+								"by-doctor",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Update Available Date",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"availableDate\": \"2024-01-16\",\n    \"doctorId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/available-dates/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"available-dates",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Available Date",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/available-dates/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"available-dates",
+								"1"
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Vaccines",
+			"item": [
+				{
+					"name": "Create Vaccine",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Kuduz Aşısı\",\n    \"code\": \"KUDUZ001\",\n    \"protectionStartDate\": \"2024-01-01\",\n    \"protectionFinishDate\": \"2025-01-01\",\n    \"animalId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/vaccines",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"vaccines"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get All Vaccines",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vaccines",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"vaccines"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Vaccine by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vaccines/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"vaccines",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Vaccines by Animal ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vaccines/by-animal/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"vaccines",
+								"by-animal",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Vaccines by Protection Finish Date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vaccines/by-protection-finish-date?startDate=2024-12-01&endDate=2025-01-31",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"vaccines",
+								"by-protection-finish-date"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2024-12-01"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-01-31"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Update Vaccine",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Kuduz Aşısı\",\n    \"code\": \"KUDUZ001\",\n    \"protectionStartDate\": \"2024-01-01\",\n    \"protectionFinishDate\": \"2025-01-01\",\n    \"animalId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/vaccines/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"vaccines",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Vaccine",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vaccines/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"vaccines",
+								"1"
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Appointments",
+			"item": [
+				{
+					"name": "Create Appointment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"appointmentDate\": \"2024-01-15T10:00:00\",\n    \"doctorId\": 1,\n    \"animalId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/appointments",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"appointments"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get All Appointments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/appointments",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"appointments"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Appointment by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/appointments/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"appointments",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Appointments by Doctor ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/appointments/by-doctor/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"appointments",
+								"by-doctor",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Appointments by Animal ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/appointments/by-animal/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"appointments",
+								"by-animal",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Appointments by Doctor and Date Range",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/appointments/by-doctor-and-date-range?doctorId=1&startDate=2024-01-01T00:00:00&endDate=2024-01-31T23:59:59",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"appointments",
+								"by-doctor-and-date-range"
+							],
+							"query": [
+								{
+									"key": "doctorId",
+									"value": "1"
+								},
+								{
+									"key": "startDate",
+									"value": "2024-01-01T00:00:00"
+								},
+								{
+									"key": "endDate",
+									"value": "2024-01-31T23:59:59"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Appointments by Animal and Date Range",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/appointments/by-animal-and-date-range?animalId=1&startDate=2024-01-01T00:00:00&endDate=2024-01-31T23:59:59",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"appointments",
+								"by-animal-and-date-range"
+							],
+							"query": [
+								{
+									"key": "animalId",
+									"value": "1"
+								},
+								{
+									"key": "startDate",
+									"value": "2024-01-01T00:00:00"
+								},
+								{
+									"key": "endDate",
+									"value": "2024-01-31T23:59:59"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Update Appointment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"appointmentDate\": \"2024-01-15T14:00:00\",\n    \"doctorId\": 1,\n    \"animalId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/appointments/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"appointments",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Appointment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/appointments/1",
+							"host": [
+								"http://localhost:8080"
+							],
+							"path": [
+								"api",
+								"appointments",
+								"1"
+							]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+} 
